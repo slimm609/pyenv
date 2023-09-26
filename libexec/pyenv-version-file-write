@@ -2,7 +2,7 @@
 # Usage: pyenv version-file-write <file> <version>
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 PYENV_VERSION_FILE="$1"
 shift || true

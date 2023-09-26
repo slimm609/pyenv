@@ -6,7 +6,7 @@ if [ "$1" = "--debug" ]; then
   shift
 fi
 
-if [ -n "$PYENV_DEBUG" ]; then
+if [ -n "${PYENV_DEBUG:-}" ]; then
   # https://wiki-dev.bash-hackers.org/scripting/debuggingtips#making_xtrace_more_useful
   export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
   set -x
@@ -27,10 +27,10 @@ if enable -f "${BASH_SOURCE%/*}"/../libexec/pyenv-realpath.dylib realpath 2>/dev
     echo "${path%/*}"
   }
 else
-  [ -z "$PYENV_NATIVE_EXT" ] || abort "failed to load \`realpath' builtin"
+  [ -z "${PYENV_NATIVE_EXT:-}" ] || abort "failed to load \`realpath' builtin"
 
   READLINK=$(type -P readlink)
-  [ -n "$READLINK" ] || abort "cannot find readlink - are you missing GNU coreutils?"
+  [ -n "${READLINK:-}" ] || abort "cannot find readlink - are you missing GNU coreutils?"
 
   resolve_link() {
     $READLINK "$1"
@@ -62,7 +62,7 @@ else
 fi
 export PYENV_ROOT
 
-if [ -z "${PYENV_DIR}" ]; then
+if [ -z "${PYENV_DIR:-}" ]; then
   PYENV_DIR="$PWD"
 fi
 
@@ -119,7 +119,7 @@ case "$command" in
   ;;
 * )
   command_path="$(command -v "pyenv-$command" || true)"
-  if [ -z "$command_path" ]; then
+  if [ -z "${command_path:-}" ]; then
     if [ "$command" == "shell" ]; then
       abort "shell integration not enabled. Run \`pyenv init' for instructions."
     else

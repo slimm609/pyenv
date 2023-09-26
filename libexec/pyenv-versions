@@ -5,7 +5,7 @@
 # Lists all Python versions found in `$PYENV_ROOT/versions/*'.
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 unset bare skip_aliases skip_envs
 # Provide pyenv completions

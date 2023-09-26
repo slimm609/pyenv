@@ -13,7 +13,7 @@
 # documentation.
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 # Provide pyenv completions
 if [ "$1" = "--complete" ]; then

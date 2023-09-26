@@ -2,7 +2,7 @@
 # Summary: Rehash pyenv shims (run this after installing executables)
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 SHIM_PATH="${PYENV_ROOT}/shims"
 PROTOTYPE_SHIM_PATH="${SHIM_PATH}/.pyenv-shim"

@@ -6,7 +6,7 @@
 # version-name'.
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 exitcode=0
 OLDIFS="$IFS"

@@ -21,7 +21,7 @@
 
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 # Provide pyenv completions
 if [ "$1" = "--complete" ]; then
@@ -32,7 +32,7 @@ fi
 versions=("$@")
 PYENV_VERSION_FILE="${PYENV_ROOT}/version"
 
-if [ -n "$versions" ]; then
+if [ -n "${versions:-}" ]; then
   pyenv-version-file-write "$PYENV_VERSION_FILE" "${versions[@]}"
 else
   OLDIFS="$IFS"

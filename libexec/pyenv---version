@@ -10,7 +10,7 @@
 # tagged.
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 version="2.3.27"
 git_revision=""

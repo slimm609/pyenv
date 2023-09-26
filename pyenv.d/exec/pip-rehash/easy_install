@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 # Remove pyenv-pip-rehash/libexec from PATH to avoid infinite loops in `pyenv-which` (yyuu/pyenv#146)
 _PATH=":${PATH}:"

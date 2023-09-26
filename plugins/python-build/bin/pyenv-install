@@ -25,7 +25,7 @@
 # compilation, see: https://github.com/pyenv/pyenv#readme
 #
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 # Add `share/python-build/` directory from each pyenv plugin to the list of
 # paths where build definitions are looked up.
@@ -73,7 +73,7 @@ unset VERBOSE
 unset HAS_PATCH
 unset DEBUG
 
-[ -n "$PYENV_DEBUG" ] && VERBOSE="-v"
+[ -n "${PYENV_DEBUG:-}" ]  && VERBOSE="-v"
 
 parse_options "$@"
 for option in "${OPTIONS[@]}"; do

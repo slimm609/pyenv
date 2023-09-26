@@ -2,7 +2,7 @@
 # Usage: pyenv version-file [<dir>]
 # Summary: Detect the file that sets the current pyenv version
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 target_dir="$1"
 

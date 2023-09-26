@@ -2,7 +2,7 @@
 # Usage: pyenv completions <command> [arg1 arg2...]
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 COMMAND="$1"
 if [ -z "$COMMAND" ]; then

@@ -6,7 +6,7 @@
 #   -q/--quiet      Do not print an error message on resolution failure
 
 set -e
-[ -n "$PYENV_DEBUG" ] && set -x
+[ -n "${PYENV_DEBUG:-}" ]  && set -x
 
 while [[ $# -gt 0 ]]
 do
